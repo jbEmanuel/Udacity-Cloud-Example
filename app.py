@@ -11,7 +11,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def get_greeting():
-        excited = os.environ['EXCITED']
+        excited = os.environ('EXCITED', false)
         greeting = "Hello" 
         if excited == 'true': 
             greeting = greeting + "!!!!! You are doing great in this Udacity project."
@@ -26,4 +26,4 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
